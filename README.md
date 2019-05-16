@@ -2,7 +2,7 @@
 Fine-tune BERT to generate sentence embedding for cosine similarity. Most of the code is based on [huggingface's bert project](https://github.com/huggingface/pytorch-pretrained-BERT).
 
 # Main point
-Add a FC layer + tanh activation on the `CLS` token to generate sentence embedding. Fine-tune the model on the STS-B dataset, by reducing the cosine similarity loss. With a embedding size of 1024, and trained 20 epochs, it can achieve 0.830 Pearson score.
+Add a FC layer + tanh activation on the `CLS` token to generate sentence embedding (Don't add dropout on this layer). Fine-tune the model on the STS-B dataset by reducing the cosine similarity loss. With a embedding size of 1024, and trained 20 epochs, it can achieve 0.83 Pearson score on the Dev dataset.
 
 ```python
  class BertPairSim(BertPreTrainedModel):
