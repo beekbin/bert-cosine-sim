@@ -12,8 +12,12 @@ Add a FC layer + tanh activation on the `CLS` token to generate sentence embeddi
         self.bert = BertModel(config)
         self.emb = nn.Linear(config.hidden_size, emb_size)
         self.activation = nn.Tanh()
+        self.cos_fn = torch.nn.CosineSimilarity(dim=1, eps=1e-6)
         self.apply(self.init_bert_weights)
 
+    def calcSim(self, emb1, emb2):
+        return self.cos_fn(va, vb)
+        
     def forward(self, input_ids, attention_mask):
         _, pooled_output = self.bert(input_ids, None, attention_mask,
                                      output_all_encoded_layers=False)
