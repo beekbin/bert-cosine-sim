@@ -18,6 +18,10 @@ import bert_models
 import tokenization
 from optimization import BertAdam
 
+from bert_models import (
+    WEIGHTS_NAME,
+    CONFIG_NAME,
+)
 
 log = logging.getLogger(__file__)
 log.setLevel(logging.INFO)
