@@ -16,7 +16,7 @@ Add a FC layer + tanh activation on the `CLS` token to generate sentence embeddi
         self.apply(self.init_bert_weights)
 
     def calcSim(self, emb1, emb2):
-        return self.cos_fn(va, vb)
+        return self.cos_fn(emb1, emb2)
         
     def forward(self, input_ids, attention_mask):
         _, pooled_output = self.bert(input_ids, None, attention_mask,
